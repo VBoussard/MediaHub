@@ -83,13 +83,13 @@ configIN::configIN(QWidget *parent)
     QFrame *frameNavig = new QFrame();
     boutonAnnul = new QPushButton("Annuler");
     boutonPrec = new QPushButton("Précédent");
-    boutonSuiv = new QPushButton("Suivant");
+    boutonTerm = new QPushButton("Terminer");
     QHBoxLayout *layoutNavig = new QHBoxLayout(frameNavig);
     layoutNavig->addWidget(boutonAnnul,0);
     layoutNavig->addWidget(boutonPrec,1);
-    layoutNavig->addWidget(boutonSuiv,2);
+    layoutNavig->addWidget(boutonTerm,2);
 
-    //-- Mise en page --//
+    //---------------------------------------- Mise en page ----------------------------------------//
     QLabel *ligne1 = new QLabel();
     ligne1->setFrameStyle(QFrame::HLine | QFrame::Raised);
     QLabel *ligne2 = new QLabel();

@@ -30,7 +30,7 @@ protected:
 
     QPushButton *boutonAnnul;
     QPushButton *boutonPrec;
-    QPushButton *boutonSuiv;
+    QPushButton *boutonTerm;
 
     //test push
     //Ajout de Lucas

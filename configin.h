@@ -31,7 +31,7 @@ protected:
 
     QPushButton *boutonAnnul;
     QPushButton *boutonPrec;
-    QPushButton *boutonSuiv;
+    QPushButton *boutonTerm;
 };
 
 #endif // CONFIGIN_H
