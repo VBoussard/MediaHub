@@ -30,19 +30,19 @@ AjoutFlux::AjoutFlux(QWidget *parent) : QWidget(parent)
 
 void AjoutFlux::Annuler()
 {
-    this->hide();
+    this->close();
 }
 
 void AjoutFlux::Entree()
 {
     configIN *FenetreConfigIN = new configIN;
     FenetreConfigIN->show();
-    this->hide();
+    this->close();
 }
 
 void AjoutFlux::Sortie()
 {
     configOUT *FenetreConfigOUT = new configOUT;
     FenetreConfigOUT->show();
-    this->hide();
+    this->close();
 }
