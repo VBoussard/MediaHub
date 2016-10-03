@@ -33,6 +33,7 @@ protected:
     QPushButton *boutonSuiv;
 
     //test push
+    //Ajout de Lucas
 };
 
 #endif // CONFIGOUT_H
