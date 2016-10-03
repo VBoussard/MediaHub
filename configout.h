@@ -33,6 +33,8 @@ protected:
     QPushButton *boutonSuiv;
 
     //test push
+
+    //ajout de Vivien
 };
 
 #endif // CONFIGOUT_H
