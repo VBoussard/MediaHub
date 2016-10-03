@@ -31,6 +31,8 @@ protected:
     QPushButton *boutonAnnul;
     QPushButton *boutonPrec;
     QPushButton *boutonSuiv;
+
+    //test push
 };
 
 #endif // CONFIGOUT_H
