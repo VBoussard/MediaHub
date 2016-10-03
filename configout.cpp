@@ -14,7 +14,7 @@ configOUT::configOUT(QWidget *parent)
     QFrame *framePrincipal = new QFrame();
     setCentralWidget(framePrincipal);
 
-    //-------------------- Frame 1 : Choix type source --------------------//
+    //---------------------------------------- Frame 1 : Choix type source ----------------------------------------//
     QFrame *frameChoixSource = new QFrame();
     QLabel *labelChoixSource = new QLabel("Type de sortie :");
     radioSortiePhy = new QRadioButton("Sortie physique");
@@ -24,12 +24,12 @@ configOUT::configOUT(QWidget *parent)
     layoutGrid1->addWidget(radioSortiePhy,0,1);
     layoutGrid1->addWidget(radioSortieStr,1,1);
 
-    //-------------------- Frame 2 : Entrée Physique --------------------//
+    //---------------------------------------- Frame 2 : Entrée Physique ----------------------------------------//
     QFrame *framePhy = new QFrame();
     framePhy->setDisabled(true);
     QLabel *labelPhy = new QLabel("Sortie physique");
     labelPhy->setStyleSheet("font-weight: bold");
-    QLabel *labelNumCarte = new QLabel("Numero de la carte :");
+    QLabel *labelNumCarte = new QLabel("Numéro de la carte :");
     QLabel *labelProfil = new QLabel("Profil :");
     QLabel *labelNomSource = new QLabel("Nom de la source :");
     comboNumCarte = new QComboBox();
@@ -53,17 +53,17 @@ configOUT::configOUT(QWidget *parent)
     layoutGrid2->addWidget(labelNomSource,3,0);
     layoutGrid2->addWidget(lineNom,3,1);
 
-    //-------------------- Frame 3 : Entrée flux/fichier --------------------//
+    //---------------------------------------- Frame 3 : Entrée flux/fichier ----------------------------------------//
     QFrame *frameStr = new QFrame();
     frameStr->setDisabled(true);
     QLabel *labelStr = new QLabel("Fichier/Stream");
     labelStr->setStyleSheet("font-weight: bold");
-    QLabel *labelAdress = new QLabel("Adress :");
+    QLabel *labelAdress = new QLabel("Adresse :");
     lineAdress = new QLineEdit();
     boutonAdress = new QPushButton("...");
     boutonAdress->setFixedSize(25,25);
-    boutonParamVid = new QPushButton("Parametres video");
-    boutonParamAud = new QPushButton("Parametres audio");
+    boutonParamVid = new QPushButton("Paramètres video");
+    boutonParamAud = new QPushButton("Paramètres audio");
     QFrame *frameLayoutH1 = new QFrame();
     QHBoxLayout *layoutH1 = new QHBoxLayout(frameLayoutH1);
     layoutH1->addWidget(lineAdress,0);
@@ -79,7 +79,7 @@ configOUT::configOUT(QWidget *parent)
     layoutV->addWidget(frameLayoutH2,3,0);
 
 
-    //-------------------- Frame 4 : Prec, suiv, annuler --------------------//
+    //---------------------------------------- Frame 4 : Prec, suiv, annuler ----------------------------------------//
     QFrame *frameNavig = new QFrame();
     boutonAnnul = new QPushButton("Annuler");
     boutonPrec = new QPushButton("Précédent");
@@ -98,7 +98,7 @@ configOUT::configOUT(QWidget *parent)
     ligne3->setFrameStyle(QFrame::HLine | QFrame::Raised);
 
 
-    //-------------------------------------- Layout vertical GLOBAL --//
+    //-------------------------------------- Layout vertical GLOBAL --------------------------------------//
     QVBoxLayout *layoutVPrincipal = new QVBoxLayout(framePrincipal);
     layoutVPrincipal->addWidget(frameChoixSource,0,0);
     layoutVPrincipal->addWidget(ligne1,1,0);
@@ -108,6 +108,7 @@ configOUT::configOUT(QWidget *parent)
     layoutVPrincipal->addWidget(ligne3,4,0);
     layoutVPrincipal->addWidget(frameNavig,5,0);
 
+    //-------------------------------------- Connects radioButtons --------------------------------------//
     connect(radioSortiePhy, SIGNAL(toggled(bool)), framePhy, SLOT(setEnabled(bool)));
     connect(radioSortieStr, SIGNAL(toggled(bool)), frameStr, SLOT(setEnabled(bool)));
 }
