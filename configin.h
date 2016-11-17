@@ -16,7 +16,7 @@ class configIN : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit configIN(QWidget *parent = 0, Engine *moteur);
+    explicit configIN(QWidget *parent = 0, Engine *moteur= NULL);
     ~configIN();
 
 protected:
