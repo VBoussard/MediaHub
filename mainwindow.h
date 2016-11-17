@@ -20,7 +20,7 @@ private:
 
 public:
     explicit MainWindow(Engine *_engine);
-    ~MainWindow;
+    ~MainWindow();
 
 public slots :
     void slotServer();
