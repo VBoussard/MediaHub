@@ -1,9 +1,9 @@
 #include <iostream>
-#include "flux.h"
+#include "stream.h"
 #include "engine.h"
 #include "vector"
 
-bool engine::instanceFlag = false;
+bool Engine::instanceFlag = false;
 //engine* engine::MediaHub = NULL;
 
 Engine::Engine()
@@ -11,7 +11,7 @@ Engine::Engine()
     m_numFlux = 0;
     //tableauFlux.push_back(NULL);
     std::cout << &tableauFlux << "titi" << std::endl;
-    flux::initMLT();
+    Stream::initMLT();
 }
 Engine* Engine::getInstance()
 {
@@ -20,7 +20,7 @@ Engine* Engine::getInstance()
 
 int Engine::createStream()
 {
-    flux* newFlux = new flux();
+    Stream* newFlux = new Stream();
     //std::cout << &newFlux << std::endl;
 
     tableauFlux.push_back(newFlux);
@@ -35,14 +35,14 @@ int Engine::createStream()
 
 bool Engine::setSrc(int _IDStream, const char* _pathSrc)
 {
-    cout << "path dans engine " << _pathSrc << endl;
+    std::cout << "path dans engine " << _pathSrc << std::endl;
     tableauFlux[_IDStream]->setSrc(_pathSrc);
 
 }
 
 bool Engine::setDest(int _IDStream, const char* _pathDest, int _winID)
 {
-    tableauFlux[_IDStream]->setDest(_winID, _pathDest);
+    //tableauFlux[_IDStream]->setDest(_winID, _pathDest);
 }
 
 void Engine::play(int _IDStream, int _speed)

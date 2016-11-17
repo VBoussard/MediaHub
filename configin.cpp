@@ -2,12 +2,12 @@
 #include <fstream>
 #include "configin.h"
 #include "configout.h"
-#include "ui_configin.h"
-#include "paraminvid.h"
-#include "paramoutaudio.h"
-#include "paramstream.h"
+//#include "ui_configin.h"
+//#include "paraminvid.h"
+//#include "paramoutaudio.h"
+//#include "paramstream.h"
 #include "engine.h"
-#include "player.h"
+//#include "player.h"
 
 #include <QFrame>
 #include <QVBoxLayout>
@@ -135,14 +135,18 @@ void configIN::Annuler()
 
 void configIN::ParamVideo()
 {
+    /*
     paramStream *fenParamVid = new paramStream;
     fenParamVid->show();
+    */
 }
 
 void configIN::ParamAudio()
 {
+    /*
     paramInVid *fenParamAud = new paramInVid;
     fenParamAud->show();
+    */
 }
 
 void configIN::Next()
@@ -187,20 +191,22 @@ void configIN::Next()
 //////////////////disparition inquietante de S_nomSource////////////////
     //m_moteur->getInstance();
 
-    cout << "path dans configin 1 "<< S_nomSource << endl;
+    std::cout << "path dans configin 1 "<< S_nomSource << std::endl;
 
-    m_numFlux = m_moteur->createFlux();
+    m_numFlux = m_moteur->createStream();
 
-    cout << "path dans configin 2 "<< S_nomSource << endl;
+    std::cout << "path dans configin 2 "<< S_nomSource << std::endl;
 
-    cout << m_numFlux << endl;
+    std::cout << m_numFlux << std::endl;
 
 
-    m_moteur->setPathIn(m_numFlux, S_nomSource);
+    m_moteur->setSrc(m_numFlux, S_nomSource);
 
     this->hide();
 
     //home/vif/Bureau/thierry.mp4
+
+    /*
 
     player *fenetreLecture = new player(NULL, m_moteur);
     int id_fenetreLecture = (int) fenetreLecture->winId();
@@ -211,8 +217,9 @@ void configIN::Next()
     //player *fenetreLecture2 = new player(NULL, m_moteur);
     //int id_fenetreLecture2 = (int) fenetreLecture->winId();
 
-    m_moteur->setPathOut(id_fenetreLecture, m_numFlux, "");
+    m_moteur->setDest(id_fenetreLecture, m_numFlux, "");
     //m_moteur->setPathOut(id_fenetreLecture2, m_numFlux, "");
     fenetreLecture->show();
     //fenetreLecture2->show();
+    */
 }
