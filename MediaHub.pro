@@ -29,4 +29,17 @@ HEADERS  += mainwindow.h \
     stream.h \
     serverwin.h
 
+mac {
+    QT += opengl
+    SOURCES += glwidget.cpp
+    HEADERS += glwidget.h
+}
+win32 {
+    INCLUDEPATH += include/mlt++ include/mlt
+    LIBS += -Llib -lmlt++ -lmlt
+} else {
+    CONFIG += link_pkgconfig
+    PKGCONFIG += mlt++
+}
+
 FORMS    +=

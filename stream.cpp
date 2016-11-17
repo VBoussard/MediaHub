@@ -5,12 +5,12 @@ Stream::Stream()
 
 }
 
-Stream(const Stream _copy)
+Stream::Stream(const Stream &_copy)
 {
 
 }
 
-~Stream()
+Stream::~Stream()
 {
 
 }
@@ -25,12 +25,12 @@ void Stream::setSrc(const char* _src)
 
 }
 
-void Stream::setDest(const char* _dest, int _winID = NULL)
+void Stream::setDest(const char* _dest, int _winID)
 {
 
 }
 
-void Stream::play(int _speed = 1)
+void Stream::play(int _speed)
 {
 
 }

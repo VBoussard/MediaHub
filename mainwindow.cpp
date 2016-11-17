@@ -2,7 +2,7 @@
 #include "serverwin.h"
 
 
-MainWindow::MainWindow() : QWidget()
+MainWindow::MainWindow(Engine *_engine = NULL) : QWidget()
 {
 
     QWidget *fenMain = new QWidget(this);
@@ -47,22 +47,38 @@ MainWindow::MainWindow() : QWidget()
     glMain->addWidget(m_pbServer,0,1);
 
     // Construction du bouton SCRIPTE
-    m_pbScripte = new QPushButton("SCRIPTE", this);
-    m_pbScripte->setMinimumHeight(100);
-    m_pbScripte->setMaximumHeight(100);
-    m_pbScripte->setMinimumWidth(300);
-    m_pbScripte->setMaximumWidth(300);
-    m_pbScripte->setFont(QFont("Arial", 16));
-    m_pbScripte->setCursor(Qt::PointingHandCursor);
-    //m_pbScripte->move(400, 300);
-    glMain->addWidget(m_pbScripte,1,1);
+    m_pbScript = new QPushButton("SCRIPTE", this);
+    m_pbScript->setMinimumHeight(100);
+    m_pbScript->setMaximumHeight(100);
+    m_pbScript->setMinimumWidth(300);
+    m_pbScript->setMaximumWidth(300);
+    m_pbScript->setFont(QFont("Arial", 16));
+    m_pbScript->setCursor(Qt::PointingHandCursor);
+    //m_pbScript->move(400, 300);
+    glMain->addWidget(m_pbScript,1,1);
 
-    connect(m_pbAdmin, SIGNAL(clicked()), this, SLOT(opServeur()));
+    connect(m_pbAdmin, SIGNAL(clicked()), this, SLOT(slotServer()));
 
 }
 
-void MainWindow::opServeur()
+void MainWindow::slotServer()
 {
-    FenetreServeur2 *Fenetre = new FenetreServeur2;
+    ServerWin *Fenetre = new ServerWin;
     Fenetre->show();
+}
+
+
+void MainWindow::slotAdmin()
+{
+
+}
+
+void MainWindow::slotVision()
+{
+
+}
+
+void MainWindow::slotScript()
+{
+
 }

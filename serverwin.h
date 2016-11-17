@@ -22,13 +22,13 @@ public:
 
 private:
     Engine* m_engine;
-    std::vector<InfoStream*> m_vectInfo;
+    //std::vector<InfoStream*> m_vectInfo;
     QGridLayout *m_gridInfo;
     QPushButton *m_pbAdd;
     QTabWidget *m_tabServer;
 
 public slots:
-    void slotBpAdd();
+    void slotpbAdd();
 };
 
 #endif // SERVERWIN_H

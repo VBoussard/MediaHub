@@ -14,17 +14,17 @@ int Engine::createStream()
 
 }
 
-bool Engine::setSrc(int _IDStream, const char* _pathSrc = NULL)
+bool Engine::setSrc(int _IDStream, const char* _pathSrc)
 {
 
 }
 
-bool Engine::setDest(int _IDStream, const char* _pathDest = NULL, int _winID = NULL)
+bool Engine::setDest(int _IDStream, const char* _pathDest, int _winID)
 {
 
 }
 
-void Engine::play(int _IDStream, int _speed = 1)
+void Engine::play(int _IDStream, int _speed)
 {
 
 }

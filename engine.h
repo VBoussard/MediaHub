@@ -18,7 +18,7 @@ public:
     int createStream();
 
     bool setSrc(int _IDStream, const char* _pathSrc = NULL);
-    bool setDest(int _IDStream, const char* _pathDest = NULL, int _winID = NULL);
+    bool setDest(int _IDStream, const char* _pathDest = NULL, int _winID = 0);
 
     void play(int _IDStream, int _speed = 1);
     void pause(int _IDStream);
