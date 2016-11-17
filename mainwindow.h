@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "engine.h"
+
 #include <QMainWindow>
 #include <QGridLayout>
 #include <QWidget>
@@ -12,14 +14,19 @@ class MainWindow : public QWidget
 {
     Q_OBJECT
 
+private:
+    Engine* m_engine;
+    QPushButton *m_pbAdmin, *m_pbVision, *m_pbServer, *m_pbScript;
+
 public:
-    explicit MainWindow();
+    explicit MainWindow(Engine* _engine);
 
 public slots :
-    void opServeur();
+    void slotServer();
+    void slotAdmin();
+    void slotVision();
+    void slotScript();
 
-private:
-    QPushButton *m_boutonAdmin, *m_boutonVision, *m_boutonServeur, *m_boutonScripte;
 };
 
 #endif // MAINWINDOW_H

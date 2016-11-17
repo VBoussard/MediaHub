@@ -1,25 +1,34 @@
-#ifndef FENETRESERVEUR2_H
-#define FENETRESERVEUR2_H
+#ifndef SERVERWIN_H
+#define SERVERWIN_H
+
+#include "engine.h"
+#include "vector"
+//#include "InfoStream.h"
 
 #include <QWidget>
 #include <QGridLayout>
 #include <QPushButton>
 #include <QTabWidget>
 
-class FenetreServeur2 : public QWidget
+class ServerWin : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit FenetreServeur2(QWidget *parent = 0);
+    explicit ServerWin(QWidget *parent = 0);
+    int getPosition();
+    void setPosition(int _position);
 
 
 private:
+    Engine* m_engine;
+    std::vector<InfoStream*> m_vectInfo;
+    QGridLayout *m_gridInfo;
+    QPushButton *m_pbAdd;
+    QTabWidget *m_tabServer;
 
-    QPushButton *m_boutonAdd;
-    QTabWidget *m_tabServeur;
 public slots:
-    void ajouterFlux();
+    void slotBpAdd();
 };
 
-#endif // FENETRESERVEUR2_H
+#endif // SERVERWIN_H

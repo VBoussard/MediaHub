@@ -14,15 +14,19 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    fenetreserveur2.cpp \
     ajoutflux.cpp \
     configin.cpp \
-    configout.cpp
+    configout.cpp \
+    engine.cpp \
+    stream.cpp \
+    serverwin.cpp
 
 HEADERS  += mainwindow.h \
-    fenetreserveur2.h \
     ajoutflux.h \
     configin.h \
-    configout.h
+    configout.h \
+    engine.h \
+    stream.h \
+    serverwin.h
 
 FORMS    +=

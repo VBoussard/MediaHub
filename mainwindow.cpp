@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "fenetreserveur2.h"
+#include "serverwin.h"
 
 
 MainWindow::MainWindow() : QWidget()
@@ -14,50 +14,50 @@ MainWindow::MainWindow() : QWidget()
     fenMain->setWindowTitle("MediaHub");
 
     // Construction du bouton ADMIN
-    m_boutonAdmin = new QPushButton("ADMINISTRATION", this);
-    m_boutonAdmin->setMinimumHeight(100);
-    m_boutonAdmin->setMaximumHeight(100);
-    m_boutonAdmin->setMinimumWidth(300);
-    m_boutonAdmin->setMaximumWidth(300);
-    m_boutonAdmin->setFont(QFont("Arial", 16));
-    m_boutonAdmin->setCursor(Qt::PointingHandCursor);
-    //m_boutonAdmin->move(100, 200);
-    glMain->addWidget(m_boutonAdmin,0,0);
+    m_pbAdmin = new QPushButton("ADMINISTRATION", this);
+    m_pbAdmin->setMinimumHeight(100);
+    m_pbAdmin->setMaximumHeight(100);
+    m_pbAdmin->setMinimumWidth(300);
+    m_pbAdmin->setMaximumWidth(300);
+    m_pbAdmin->setFont(QFont("Arial", 16));
+    m_pbAdmin->setCursor(Qt::PointingHandCursor);
+    //m_pbAdmin->move(100, 200);
+    glMain->addWidget(m_pbAdmin,0,0);
 
     // Construction du bouton VISION
-    m_boutonVision = new QPushButton("VISION", this);
-    m_boutonVision->setMinimumHeight(100);
-    m_boutonVision->setMaximumHeight(100);
-    m_boutonVision->setMinimumWidth(300);
-    m_boutonVision->setMaximumWidth(300);
-    m_boutonVision->setFont(QFont("Arial", 16));
-    m_boutonVision->setCursor(Qt::PointingHandCursor);
-    //m_boutonVision->move(100, 300);
-    glMain->addWidget(m_boutonVision,1,0);
+    m_pbVision = new QPushButton("VISION", this);
+    m_pbVision->setMinimumHeight(100);
+    m_pbVision->setMaximumHeight(100);
+    m_pbVision->setMinimumWidth(300);
+    m_pbVision->setMaximumWidth(300);
+    m_pbVision->setFont(QFont("Arial", 16));
+    m_pbVision->setCursor(Qt::PointingHandCursor);
+    //m_pbVision->move(100, 300);
+    glMain->addWidget(m_pbVision,1,0);
 
     // Construction du bouton SERVEUR
-    m_boutonServeur = new QPushButton("OP SERVEUR", this);
-    m_boutonServeur->setMinimumHeight(100);
-    m_boutonServeur->setMaximumHeight(100);
-    m_boutonServeur->setMinimumWidth(300);
-    m_boutonServeur->setMaximumWidth(300);
-    m_boutonServeur->setFont(QFont("Arial", 16));
-    m_boutonServeur->setCursor(Qt::PointingHandCursor);
-    //m_boutonServeur->move(400, 200);
-    glMain->addWidget(m_boutonServeur,0,1);
+    m_pbServer = new QPushButton("OP SERVEUR", this);
+    m_pbServer->setMinimumHeight(100);
+    m_pbServer->setMaximumHeight(100);
+    m_pbServer->setMinimumWidth(300);
+    m_pbServer->setMaximumWidth(300);
+    m_pbServer->setFont(QFont("Arial", 16));
+    m_pbServer->setCursor(Qt::PointingHandCursor);
+    //m_pbServer->move(400, 200);
+    glMain->addWidget(m_pbServer,0,1);
 
     // Construction du bouton SCRIPTE
-    m_boutonScripte = new QPushButton("SCRIPTE", this);
-    m_boutonScripte->setMinimumHeight(100);
-    m_boutonScripte->setMaximumHeight(100);
-    m_boutonScripte->setMinimumWidth(300);
-    m_boutonScripte->setMaximumWidth(300);
-    m_boutonScripte->setFont(QFont("Arial", 16));
-    m_boutonScripte->setCursor(Qt::PointingHandCursor);
-    //m_boutonScripte->move(400, 300);
-    glMain->addWidget(m_boutonScripte,1,1);
+    m_pbScripte = new QPushButton("SCRIPTE", this);
+    m_pbScripte->setMinimumHeight(100);
+    m_pbScripte->setMaximumHeight(100);
+    m_pbScripte->setMinimumWidth(300);
+    m_pbScripte->setMaximumWidth(300);
+    m_pbScripte->setFont(QFont("Arial", 16));
+    m_pbScripte->setCursor(Qt::PointingHandCursor);
+    //m_pbScripte->move(400, 300);
+    glMain->addWidget(m_pbScripte,1,1);
 
-    connect(m_boutonAdmin, SIGNAL(clicked()), this, SLOT(opServeur()));
+    connect(m_pbAdmin, SIGNAL(clicked()), this, SLOT(opServeur()));
 
 }
 
