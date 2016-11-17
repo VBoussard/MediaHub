@@ -14,7 +14,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    ajoutflux.cpp \
+    addstream.cpp \
     configin.cpp \
     configout.cpp \
     engine.cpp \
@@ -22,7 +22,7 @@ SOURCES += main.cpp\
     serverwin.cpp
 
 HEADERS  += mainwindow.h \
-    ajoutflux.h \
+    addstream.h \
     configin.h \
     configout.h \
     engine.h \
