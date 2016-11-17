@@ -63,7 +63,7 @@ MainWindow::MainWindow(Engine *_engine = NULL) : QWidget()
 
 MainWindow::~MainWindow()
 {
-    delete m_moteur;
+    delete m_engine;
 }
 
 void MainWindow::slotServer()
