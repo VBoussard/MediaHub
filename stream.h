@@ -18,12 +18,16 @@ public:
     Stream(const Stream &_copy);
     ~Stream();
 
+    static void initMLT();
+
     void setID(int _IDStream);
     void setSrc(const char* _src);
     void setDest(const char* _dest, int _winID);
     void play(int _speed = 1);
     void pause();
     void close();
+
+    const uint8_t* getImage(void* frame_ptr);
 };
 
 #endif // STREAM_H

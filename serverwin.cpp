@@ -1,8 +1,10 @@
 #include "ajoutflux.h"
 #include "serverwin.h"
 
-ServerWin::ServerWin(QWidget *parent) : QWidget(parent)
+ServerWin::ServerWin(QWidget *parent, engine *_engine) : QWidget(parent)
 {
+
+    m_engine = _engine;
 
     QWidget *fenServer = new QWidget(this);
     QGridLayout *glServer = new QGridLayout;
@@ -26,6 +28,11 @@ ServerWin::ServerWin(QWidget *parent) : QWidget(parent)
     glServer->addWidget(m_tabServer,1,0);
 
     connect(m_pbAdd,SIGNAL(clicked()), this, SLOT(slotpbAdd()));
+}
+
+ServerWin::~ServerWin()
+{
+    delete m_engine;
 }
 
 int ServerWin::getPosition()

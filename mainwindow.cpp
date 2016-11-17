@@ -61,6 +61,11 @@ MainWindow::MainWindow(Engine *_engine = NULL) : QWidget()
 
 }
 
+MainWindow::~MainWindow()
+{
+    delete m_moteur;
+}
+
 void MainWindow::slotServer()
 {
     ServerWin *Fenetre = new ServerWin;
