@@ -25,11 +25,11 @@ public:
     void play(int _IDStream, int _speed = 1);
     void pause(int _IDStream);
 
-    vector<flux*> tableauFlux;
+    std::vector<Stream*> tableauFlux;
     int m_positionFlux;
     int m_numFlux;
 
-    ~engine();
+    ~Engine();
 };
 
 #endif // ENGINE_H
