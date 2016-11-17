@@ -2,7 +2,7 @@
 #include "configin.h"
 #include "configout.h"
 
-AddStream::AddStream(QWidget *parent) : QWidget(parent)
+AddStream::AddStream(QWidget *parent, Engine *moteur) : QWidget(parent), m_moteur(moteur)
 {
     QWidget *fenAjout = new QWidget(this);
     QGridLayout *glAjout = new QGridLayout;
@@ -25,6 +25,13 @@ AddStream::AddStream(QWidget *parent) : QWidget(parent)
     connect(m_boutonIN, SIGNAL(clicked()), this, SLOT(Entree()));
     connect(m_boutonOUT, SIGNAL(clicked()), this, SLOT(Sortie()));
     connect(m_boutonQuit, SIGNAL(clicked()), this, SLOT(Annuler()));
+
+    m_moteur = moteur;
+}
+
+AjoutFlux::~AjoutFlux()
+{
+
 }
 
 
@@ -35,14 +42,16 @@ void AddStream::Annuler()
 
 void AddStream::Entree()
 {
-    configIN *FenetreConfigIN = new configIN;
+    configIN *FenetreConfigIN = new configIN(this,m_moteur);
     FenetreConfigIN->show();
     this->close();
 }
 
 void AddStream::Sortie()
 {
+    /*
     configOUT *FenetreConfigOUT = new configOUT;
     FenetreConfigOUT->show();
     this->close();
+    */
 }

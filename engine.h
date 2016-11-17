@@ -11,6 +11,8 @@ private:
     //Attributs :
     int m_nbStream;
     std::vector<Stream*> m_streamArray;
+    static bool instanceFlag;
+
 
 public:
     Engine();
@@ -22,6 +24,12 @@ public:
 
     void play(int _IDStream, int _speed = 1);
     void pause(int _IDStream);
+
+    vector<flux*> tableauFlux;
+    int m_positionFlux;
+    int m_numFlux;
+
+    ~engine();
 };
 
 #endif // ENGINE_H

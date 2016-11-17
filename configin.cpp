@@ -1,4 +1,13 @@
+#include <iostream>
+#include <fstream>
 #include "configin.h"
+#include "configout.h"
+#include "ui_configin.h"
+#include "paraminvid.h"
+#include "paramoutaudio.h"
+#include "paramstream.h"
+#include "engine.h"
+#include "player.h"
 
 #include <QFrame>
 #include <QVBoxLayout>
@@ -8,8 +17,8 @@
 #include <QComboBox>
 #include <QLineEdit>
 
-configIN::configIN(QWidget *parent)
-    : QMainWindow(parent)
+configIN::configIN(QWidget *parent, Engine *moteur)
+    : QMainWindow(parent), m_moteur(moteur)
 {
     QFrame *framePrincipal = new QFrame();
     setCentralWidget(framePrincipal);
@@ -116,4 +125,94 @@ configIN::configIN(QWidget *parent)
 configIN::~configIN()
 {
 
+}
+
+
+void configIN::Annuler()
+{
+    this->close();
+}
+
+void configIN::ParamVideo()
+{
+    paramStream *fenParamVid = new paramStream;
+    fenParamVid->show();
+}
+
+void configIN::ParamAudio()
+{
+    paramInVid *fenParamAud = new paramInVid;
+    fenParamAud->show();
+}
+
+void configIN::Next()
+{
+    /*
+    //Cas 1 : Entrée physique
+    if (radioEntreePhy->isChecked())
+    {
+        //Initialisation de typeEntree à 1 (entrée physique)
+        int typeEntree(1);
+        //Récupération des paramètres entrés par l'utilisateur :
+        choixCarte = ui->choixCarte->currentText();
+        profil = ui->choixProfil->currentText();
+        nomSource = ui->nomSource->text();
+
+        //Conversion des QString -> const char* en vue de l'utilisation par le moteur
+        C_choixCarte = choixCarte.toAscii().data();
+        C_profil = profil.toAscii().data();
+        C_nomSource = nomSource.toAscii().data();
+
+
+
+
+    }
+    //Cas 2 : Entrée stream/fichier
+    else */
+    if (radioEntreeStr->isChecked())
+    {
+        //Initialisation de typeEntree à 2 (entrée stream/fichier)
+        int typeEntree(2);
+        //Récupération des paramètres entrés par l'utilisateur :
+        QString adresse = lineAdress->text();
+
+
+
+        //Conversion des QString -> string en vue de l'utilisation par le moteur
+        S_nomSource = adresse.toUtf8().constData();
+
+
+    }
+
+//////////////////disparition inquietante de S_nomSource////////////////
+    //m_moteur->getInstance();
+
+    cout << "path dans configin 1 "<< S_nomSource << endl;
+
+    m_numFlux = m_moteur->createFlux();
+
+    cout << "path dans configin 2 "<< S_nomSource << endl;
+
+    cout << m_numFlux << endl;
+
+
+    m_moteur->setPathIn(m_numFlux, S_nomSource);
+
+    this->hide();
+
+    //home/vif/Bureau/thierry.mp4
+
+    player *fenetreLecture = new player(NULL, m_moteur);
+    int id_fenetreLecture = (int) fenetreLecture->winId();
+    QWidget *tutu = new QWidget();
+    int ID_tutu = (int) tutu->winId();
+
+
+    //player *fenetreLecture2 = new player(NULL, m_moteur);
+    //int id_fenetreLecture2 = (int) fenetreLecture->winId();
+
+    m_moteur->setPathOut(id_fenetreLecture, m_numFlux, "");
+    //m_moteur->setPathOut(id_fenetreLecture2, m_numFlux, "");
+    fenetreLecture->show();
+    //fenetreLecture2->show();
 }

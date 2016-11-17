@@ -6,16 +6,20 @@
 #include <QLabel>
 #include <QPushButton>
 
+#include "engine.h"
+
 class AddStream : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit AddStream(QWidget *parent = 0);
+    explicit AddStream(QWidget *parent = 0, Engine *moteur);
+    ~AddStream();
 
 private:
     QLabel *m_labelIO;
     QPushButton *m_boutonIN, *m_boutonOUT, *m_boutonQuit;
+    Engine *m_moteur;
 
 private slots:
     void Annuler();
