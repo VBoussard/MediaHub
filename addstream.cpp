@@ -29,7 +29,7 @@ AddStream::AddStream(QWidget *parent, Engine *moteur) : QWidget(parent), m_moteu
     m_moteur = moteur;
 }
 
-AjoutFlux::~AjoutFlux()
+AddStream::~AddStream()
 {
 
 }

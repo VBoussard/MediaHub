@@ -13,7 +13,7 @@ class AddStream : public QWidget
     Q_OBJECT
 
 public:
-    explicit AddStream(QWidget *parent = 0, Engine *moteur);
+    explicit AddStream(QWidget *parent = 0, Engine *moteur = NULL);
     ~AddStream();
 
 private:
