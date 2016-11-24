@@ -14,7 +14,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    ajoutflux.cpp \
+    addstream.cpp \
     configin.cpp \
     configout.cpp \
     engine.cpp \
@@ -22,11 +22,24 @@ SOURCES += main.cpp\
     serverwin.cpp
 
 HEADERS  += mainwindow.h \
-    ajoutflux.h \
+    addstream.h \
     configin.h \
     configout.h \
     engine.h \
     stream.h \
     serverwin.h
+
+mac {
+    QT += opengl
+    SOURCES += glwidget.cpp
+    HEADERS += glwidget.h
+}
+win32 {
+    INCLUDEPATH += include/mlt++ include/mlt
+    LIBS += -Llib -lmlt++ -lmlt
+} else {
+    CONFIG += link_pkgconfig
+    PKGCONFIG += mlt++
+}
 
 FORMS    +=

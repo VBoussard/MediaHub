@@ -1,21 +1,25 @@
-#ifndef AJOUTFLUX_H
-#define AJOUTFLUX_H
+#ifndef ADDSTREAM_H
+#define ADDSTREAM_H
 
 #include <QWidget>
 #include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
 
-class AjoutFlux : public QWidget
+#include "engine.h"
+
+class AddStream : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit AjoutFlux(QWidget *parent = 0);
+    explicit AddStream(QWidget *parent = 0, Engine *moteur = NULL);
+    ~AddStream();
 
 private:
     QLabel *m_labelIO;
     QPushButton *m_boutonIN, *m_boutonOUT, *m_boutonQuit;
+    Engine *m_moteur;
 
 private slots:
     void Annuler();
@@ -23,4 +27,4 @@ private slots:
     void Sortie();
 };
 
-#endif // AJOUTFLUX_H
+#endif // ADDSTREAM_H

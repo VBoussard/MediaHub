@@ -15,7 +15,8 @@ class ServerWin : public QWidget
     Q_OBJECT
 
 public:
-    explicit ServerWin(QWidget *parent = 0);
+    explicit ServerWin(QWidget *parent = 0, engine *_engine);
+    ~ServerWin();
     int getPosition();
     void setPosition(int _position);
 

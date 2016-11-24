@@ -7,13 +7,16 @@
 #include <QComboBox>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QWidget>
+
+#include "engine.h"
 
 class configIN : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    configIN(QWidget *parent = 0);
+    explicit configIN(QWidget *parent = 0, Engine *moteur= NULL);
     ~configIN();
 
 protected:
@@ -32,6 +35,28 @@ protected:
     QPushButton *boutonAnnul;
     QPushButton *boutonPrec;
     QPushButton *boutonTerm;
+
+private:
+    QString choixCarte;
+    QString profil;
+    QString nomSource;
+    Engine *m_moteur;
+
+    const char* C_choixCarte;
+    const char* C_profil;
+    const char* C_nomSource;
+
+    const char* S_choixCarte;
+    const char* S_profil;
+    const char* S_nomSource;
+
+    int m_numFlux;
+
+private slots:
+    void Annuler();
+    void ParamAudio();
+    void ParamVideo();
+    void Next();
 };
 
 #endif // CONFIGIN_H

@@ -11,11 +11,11 @@ Stream::Stream()
     m_consumer = 0;
 }
 
-Stream::Stream(const Stream &_copy)
+Stream::Stream(Stream *_copy)
 {
-    m_profile = _copy.m_profile;
-    m_producer = _copy.m_producer;
-    m_consumer = _copy.m_consumer;
+    m_profile = _copy->m_profile;
+    m_producer = _copy->m_producer;
+    m_consumer = _copy->m_consumer;
 }
 
 Stream::~Stream()

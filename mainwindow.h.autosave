@@ -22,6 +22,7 @@ public:
     explicit MainWindow(Engine *_engine);
     ~MainWindow();
 
+
 public slots :
     void slotServer();
     void slotAdmin();
