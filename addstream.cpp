@@ -117,7 +117,6 @@ AddStream::AddStream(Engine *moteur) : QWidget(), m_moteur(moteur)
     labelPhyOUT->setStyleSheet("font-weight: bold");
     QLabel *labelNumCarteOUT = new QLabel("Numero de la carte :");
     QLabel *labelProfilOUT = new QLabel("Profil :");
-    QLabel *labelNomSourceOUT = new QLabel("Nom de la source :");
     comboNumCarteOUT = new QComboBox();
     int cartesLibresOUT = 8;
     QString indiceCartesOUT[8] = {"1","2","3","4","5","6","7","8"};
@@ -129,15 +128,12 @@ AddStream::AddStream(Engine *moteur) : QWidget(), m_moteur(moteur)
     comboProfilOUT = new QComboBox();
     comboProfilOUT->addItem("CRM");
     comboProfilOUT->addItem("Profil 2");
-    lineNomOUT = new QLineEdit();
     QGridLayout *glPhyOUT = new QGridLayout(framePhyOUT);
     glPhyOUT->addWidget(labelPhyOUT,0,0);
     glPhyOUT->addWidget(labelNumCarteOUT,1,0);
     glPhyOUT->addWidget(comboNumCarteOUT,1,1);
     glPhyOUT->addWidget(labelProfilOUT,2,0);
     glPhyOUT->addWidget(comboProfilOUT,2,1);
-    glPhyOUT->addWidget(labelNomSourceOUT,3,0);
-    glPhyOUT->addWidget(lineNomOUT,3,1);
 
     //Sortie fichier/stream :
     QFrame *frameStrOUT = new QFrame();
