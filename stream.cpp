@@ -1,6 +1,7 @@
 #include "stream.h"
 #include <iostream>
 #include <QWidget>
+#include <Mlt.h>
 
 using namespace std;
 
@@ -25,7 +26,9 @@ Stream::~Stream()
 
 void Stream::initMLT()
 {
+    std::cout << "test" << std::endl;
     Mlt::Factory::init();
+    std::cout << "test2" << std::endl;
 }
 
 void Stream::setID(int _IDStream)
@@ -58,7 +61,7 @@ void Stream::play(int _speed)
 void Stream::pause()
 {
     if(m_producer)
-        m_producer.pause();
+        m_producer->pause();
 }
 
 void Stream::close()
@@ -71,4 +74,8 @@ void Stream::close()
     m_producer = 0;
     delete m_profile;
     m_profile = 0;
+}
+
+const uint8_t* Stream::getImage(void *frame_ptr){
+
 }

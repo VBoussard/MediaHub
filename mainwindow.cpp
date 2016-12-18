@@ -2,8 +2,9 @@
 #include "serverwin.h"
 
 
-MainWindow::MainWindow(Engine *_engine = NULL) : QWidget()
+MainWindow::MainWindow(Engine *_engine) : QWidget()
 {
+    m_engine = _engine;
 
     QWidget *fenMain = new QWidget(this);
     QGridLayout *glMain = new QGridLayout;
@@ -68,7 +69,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::slotServer()
 {
-    ServerWin *Fenetre = new ServerWin;
+    ServerWin *Fenetre = new ServerWin(m_engine);
     Fenetre->show();
 }
 

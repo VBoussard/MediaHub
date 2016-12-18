@@ -1,7 +1,7 @@
-#include "ajoutflux.h"
+#include "addstream.h"
 #include "serverwin.h"
 
-ServerWin::ServerWin(QWidget *parent, engine *_engine) : QWidget(parent)
+ServerWin::ServerWin(Engine *_engine) : QWidget()
 {
 
     m_engine = _engine;
@@ -32,7 +32,7 @@ ServerWin::ServerWin(QWidget *parent, engine *_engine) : QWidget(parent)
 
 ServerWin::~ServerWin()
 {
-    delete m_engine;
+    //delete m_engine;
 }
 
 int ServerWin::getPosition()
@@ -47,6 +47,6 @@ void ServerWin::setPosition(int _position)
 
 void ServerWin::slotpbAdd()
 {
-    AjoutFlux *FenetreAjout = new AjoutFlux;
+    AddStream *FenetreAjout = new AddStream(m_engine);
     FenetreAjout->show();
 }

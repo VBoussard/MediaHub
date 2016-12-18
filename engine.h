@@ -25,6 +25,8 @@ public:
     void play(int _IDStream, int _speed = 1);
     void pause(int _IDStream);
 
+
+    // anciens noms à remplacer
     std::vector<Stream*> tableauFlux;
     int m_positionFlux;
     int m_numFlux;

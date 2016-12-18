@@ -15,7 +15,7 @@ private:
 
 public:
     Stream();
-    Stream(Stream *_copy);
+    Stream(const Stream &_copy);
     ~Stream();
 
     static void initMLT();

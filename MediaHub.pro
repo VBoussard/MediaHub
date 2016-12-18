@@ -15,16 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     addstream.cpp \
-    configin.cpp \
-    configout.cpp \
     engine.cpp \
     stream.cpp \
     serverwin.cpp
 
 HEADERS  += mainwindow.h \
     addstream.h \
-    configin.h \
-    configout.h \
     engine.h \
     stream.h \
     serverwin.h

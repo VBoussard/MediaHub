@@ -19,7 +19,7 @@ private:
     QPushButton *m_pbAdmin, *m_pbVision, *m_pbServer, *m_pbScript;
 
 public:
-    explicit MainWindow(Engine *_engine);
+    explicit MainWindow(Engine *_engine = NULL);
     ~MainWindow();
 
 public slots :
