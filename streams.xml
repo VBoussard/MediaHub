@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--  MediaHub - 18.12.16  -->
+
+<streams>
+  <stream> 
+    <id></id>
+    <name></name>
+    <source>
+      <type></type>
+      <cardIndex></cardIndex>
+      <profil></profil>
+      <address></address>
+    </source>
+    <destination>
+      <type></type>
+      <cardIndex></cardIndex>
+      <profil></profil>
+      <address></address>
+    </destination>
+  </stream>
+</streams>
