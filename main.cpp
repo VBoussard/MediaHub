@@ -7,7 +7,8 @@ int main(int argc, char *argv[])
     Engine *MediaHub = new Engine;
     QApplication a(argc, argv);
     MainWindow w(MediaHub);
-    w.show();
+    w.showMaximized();
+
 
     return a.exec();
 

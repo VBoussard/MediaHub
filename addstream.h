@@ -2,6 +2,7 @@
 #define ADDSTREAM_H
 
 #include <QWidget>
+#include <QDialog>
 #include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
@@ -11,7 +12,7 @@
 
 #include "engine.h"
 
-class AddStream : public QWidget
+class AddStream : public QDialog
 {
     Q_OBJECT
 

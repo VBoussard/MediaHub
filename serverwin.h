@@ -3,6 +3,7 @@
 
 #include "engine.h"
 #include "vector"
+#include "thumbnail.h"
 //#include "InfoStream.h"
 
 #include <QWidget>
@@ -28,7 +29,12 @@ private:
     QPushButton *m_pbAdd;
     QTabWidget *m_tabServer;
 
-    int WinViewID[8];
+    int WinViewID[8];    //REMPLACER PAR VECTOR ??
+    //====================//
+    int nb_streams;
+    QGridLayout *gl_thumbnails;
+    Thumbnail *WinView[8];  //REMPLACER PAR VECTOR ?
+    //====================//
 
 public slots:
     void slotpbAdd();

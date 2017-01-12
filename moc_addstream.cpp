@@ -64,7 +64,7 @@ const QMetaObjectExtraData AddStream::staticMetaObjectExtraData = {
 };
 
 const QMetaObject AddStream::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_AddStream,
+    { &QDialog::staticMetaObject, qt_meta_stringdata_AddStream,
       qt_meta_data_AddStream, &staticMetaObjectExtraData }
 };
 
@@ -82,12 +82,12 @@ void *AddStream::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_AddStream))
         return static_cast<void*>(const_cast< AddStream*>(this));
-    return QWidget::qt_metacast(_clname);
+    return QDialog::qt_metacast(_clname);
 }
 
 int AddStream::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QWidget::qt_metacall(_c, _id, _a);
+    _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

@@ -5,7 +5,7 @@
 #include <QFileDialog>
 
 
-AddStream::AddStream(Engine *moteur, int _idWinView[]) : QWidget(), m_moteur(moteur)
+AddStream::AddStream(Engine *moteur, int _idWinView[]) : QDialog(), m_moteur(moteur)
 {
     for(int i=0;i<8;i++)
        {
@@ -187,9 +187,9 @@ AddStream::AddStream(Engine *moteur, int _idWinView[]) : QWidget(), m_moteur(mot
     connect(radioSortieStr, SIGNAL(toggled(bool)), frameStrOUT, SLOT(setEnabled(bool)));
 
     m_pbCancel = new QPushButton("Annuler");
-    connect(m_pbCancel, SIGNAL(clicked()), this, SLOT(Annuler()));
+    connect(m_pbCancel, SIGNAL(clicked()), this, SLOT(reject()));
     m_pbValid = new QPushButton("Ok");
-    connect(m_pbValid, SIGNAL(clicked()), this, SLOT(Valider()));
+    connect(m_pbValid, SIGNAL(clicked()), this, SLOT(accept()));
 
     QLabel *ligneVert = new QLabel();
     ligneVert->setFrameStyle(QFrame::VLine | QFrame::Raised);
@@ -212,11 +212,13 @@ AddStream::~AddStream()
 
 void AddStream::Annuler()
 {
+    this->Rejected;
     this->close();
 }
 
 void AddStream::Valider()
 {
+    this->Accepted;
     /*
      Player *fenetreLecture = new Player();
      int id_fenetreLecture = (int) fenetreLecture->winId();

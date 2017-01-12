@@ -1,8 +1,10 @@
 #include "addstream.h"
 #include "serverwin.h"
-#include "thumbnail.h"
 
-ServerWin::ServerWin(Engine *_engine) : QWidget()
+#include <iostream>
+
+ServerWin::ServerWin(Engine *_engine) : QWidget(),
+    nb_streams(0)
 {
 
     m_engine = _engine;
@@ -29,9 +31,10 @@ ServerWin::ServerWin(Engine *_engine) : QWidget()
     m_tabServer->addTab(tab2,"Carte 2");
     glServer->addWidget(m_tabServer,1,0);
 
-    QGridLayout *gl_thumbnails = new QGridLayout(tab1);
-    Thumbnail* WinView[8];
+    gl_thumbnails = new QGridLayout(tab1);
+    //gl_thumbnails->setAlignment(Qt::AlignTop);
 
+/*
     for (int i=0; i<8; i++)
     {
         WinView[i] = new Thumbnail();
@@ -48,7 +51,7 @@ ServerWin::ServerWin(Engine *_engine) : QWidget()
         gl_thumbnails->addWidget(WinView[6],1,2);
         gl_thumbnails->addWidget(WinView[7],1,3);
 
-
+    */
     connect(m_pbAdd,SIGNAL(clicked()), this, SLOT(slotpbAdd()));
 }
 
@@ -70,5 +73,17 @@ void ServerWin::setPosition(int _position)
 void ServerWin::slotpbAdd()
 {
     AddStream *FenetreAjout = new AddStream(m_engine,WinViewID);
-    FenetreAjout->show();
+    FenetreAjout->exec();
+    if(FenetreAjout->result() == QDialog::Accepted)
+    {
+        nb_streams++;
+        int largeur_tab = 4;
+        WinView[nb_streams] = new Thumbnail;
+        WinViewID[nb_streams] = WinView[nb_streams]->getWinID();
+
+        gl_thumbnails->addWidget(WinView[nb_streams],(nb_streams/5),((nb_streams-1)%4));
+        std::cout << nb_streams << "  -  " << nb_streams/5 << "   -   " << (nb_streams-1)%4 << std::endl;
+
+    }
+
 }

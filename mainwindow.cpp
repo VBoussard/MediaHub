@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "serverwin.h"
 
+#include <QSpacerItem>
 
 MainWindow::MainWindow(Engine *_engine) : QWidget()
 {
@@ -9,9 +10,20 @@ MainWindow::MainWindow(Engine *_engine) : QWidget()
     QWidget *fenMain = new QWidget(this);
     QGridLayout *glMain = new QGridLayout;
     glMain->setSpacing(5);
+    glMain->setAlignment(fenMain, Qt::AlignCenter);
     fenMain->setLayout(glMain);
 
-    fenMain->setFixedSize(800, 600);
+    //QSpacerItem spacerTop, spacerBottom, spacerLeft, spacerRight;
+    QSpacerItem *spacerTop = new QSpacerItem(100,100,QSizePolicy::Expanding, QSizePolicy::Expanding);
+    QSpacerItem *spacerBottom = new QSpacerItem(100,100,QSizePolicy::Expanding, QSizePolicy::Expanding);
+    QSpacerItem *spacerLeft = new QSpacerItem(100,100,QSizePolicy::Expanding, QSizePolicy::Expanding);
+    QSpacerItem *spacerRight = new QSpacerItem(100,100,QSizePolicy::Expanding, QSizePolicy::Expanding);
+    glMain->addItem(spacerTop,0,0,1,4);
+    glMain->addItem(spacerRight, 0,1,1,2);
+    glMain->addItem(spacerLeft,3,1,1,2);
+    glMain->addItem(spacerBottom,0,3,1,4);
+
+    //fenMain->setFixedSize(800, 600);
     fenMain->setWindowTitle("MediaHub");
 
     // Construction du bouton ADMIN
@@ -23,7 +35,7 @@ MainWindow::MainWindow(Engine *_engine) : QWidget()
     m_pbAdmin->setFont(QFont("Arial", 16));
     m_pbAdmin->setCursor(Qt::PointingHandCursor);
     //m_pbAdmin->move(100, 200);
-    glMain->addWidget(m_pbAdmin,0,0);
+    glMain->addWidget(m_pbAdmin,1,1);
 
     // Construction du bouton VISION
     m_pbVision = new QPushButton("VISION", this);
@@ -34,7 +46,7 @@ MainWindow::MainWindow(Engine *_engine) : QWidget()
     m_pbVision->setFont(QFont("Arial", 16));
     m_pbVision->setCursor(Qt::PointingHandCursor);
     //m_pbVision->move(100, 300);
-    glMain->addWidget(m_pbVision,1,0);
+    glMain->addWidget(m_pbVision,2,1);
 
     // Construction du bouton SERVEUR
     m_pbServer = new QPushButton("OP SERVEUR", this);
@@ -45,7 +57,7 @@ MainWindow::MainWindow(Engine *_engine) : QWidget()
     m_pbServer->setFont(QFont("Arial", 16));
     m_pbServer->setCursor(Qt::PointingHandCursor);
     //m_pbServer->move(400, 200);
-    glMain->addWidget(m_pbServer,0,1);
+    glMain->addWidget(m_pbServer,1,2);
 
     // Construction du bouton SCRIPTE
     m_pbScript = new QPushButton("SCRIPTE", this);
@@ -56,7 +68,7 @@ MainWindow::MainWindow(Engine *_engine) : QWidget()
     m_pbScript->setFont(QFont("Arial", 16));
     m_pbScript->setCursor(Qt::PointingHandCursor);
     //m_pbScript->move(400, 300);
-    glMain->addWidget(m_pbScript,1,1);
+    glMain->addWidget(m_pbScript,2,2);
 
     connect(m_pbAdmin, SIGNAL(clicked()), this, SLOT(slotServer()));
 
