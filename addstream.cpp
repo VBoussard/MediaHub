@@ -1,20 +1,19 @@
 #include "addstream.h"
 #include <iostream>
-
+#include <player.h>
 #include <QButtonGroup>
 #include <QFileDialog>
-#include <QMessageBox>
-
-#include <QtXml>
-#include <QFile>
-#include <QXmlStreamWriter>
 
 
-AddStream::AddStream(Engine *moteur) : QWidget(), m_moteur(moteur)
+AddStream::AddStream(Engine *moteur, int _idWinView[]) : QWidget(), m_moteur(moteur)
 {
+    for(int i=0;i<8;i++)
+       {
+        m_idWinView[i] = _idWinView[i];
+        }
+
     QWidget *fenAjout = new QWidget(this);
     QGridLayout *glAjout = new QGridLayout;
-    glAjout->setAlignment(Qt::AlignTop);
     fenAjout->setFixedSize(700, 450);
     fenAjout->setWindowTitle("Assistant I/O");
 
@@ -123,6 +122,7 @@ AddStream::AddStream(Engine *moteur) : QWidget(), m_moteur(moteur)
     labelPhyOUT->setStyleSheet("font-weight: bold");
     QLabel *labelNumCarteOUT = new QLabel("Numero de la carte :");
     QLabel *labelProfilOUT = new QLabel("Profil :");
+    QLabel *labelNomSourceOUT = new QLabel("Nom de la source :");
     comboNumCarteOUT = new QComboBox();
     int cartesLibresOUT = 8;
     QString indiceCartesOUT[8] = {"1","2","3","4","5","6","7","8"};
@@ -134,12 +134,15 @@ AddStream::AddStream(Engine *moteur) : QWidget(), m_moteur(moteur)
     comboProfilOUT = new QComboBox();
     comboProfilOUT->addItem("CRM");
     comboProfilOUT->addItem("Profil 2");
+    lineNomOUT = new QLineEdit();
     QGridLayout *glPhyOUT = new QGridLayout(framePhyOUT);
     glPhyOUT->addWidget(labelPhyOUT,0,0);
     glPhyOUT->addWidget(labelNumCarteOUT,1,0);
     glPhyOUT->addWidget(comboNumCarteOUT,1,1);
     glPhyOUT->addWidget(labelProfilOUT,2,0);
     glPhyOUT->addWidget(comboProfilOUT,2,1);
+    glPhyOUT->addWidget(labelNomSourceOUT,3,0);
+    glPhyOUT->addWidget(lineNomOUT,3,1);
 
     //Sortie fichier/stream :
     QFrame *frameStrOUT = new QFrame();
@@ -214,9 +217,28 @@ void AddStream::Annuler()
 
 void AddStream::Valider()
 {
-    QDomDocument streamsFile;
-    QDomElement root = streamsFile.createElement("streams");
-    streamsFile.appendChild(root);
+    /*
+     Player *fenetreLecture = new Player();
+     int id_fenetreLecture = (int) fenetreLecture->winId();
+     std::cout<< "id fenetre lect : "<< id_fenetreLecture <<std::endl;
+    */
+
+    m_numFlux = m_moteur->createStream();
+    std::cout<< "num flux : "<< m_numFlux <<std::endl;
+
+    QString adresse = lineAdressIN->text();
+    const char* S_nomSource = adresse.toUtf8().constData();
+
+    //std::cout<< "adresse source prise dans la fenetre addstream et passée ds setsrc "<< S_nomSource <<std::endl;
+    m_moteur->setSrc(m_numFlux, S_nomSource);
+
+    //Engine::setDest(int _IDStream, const char* _pathDest, int _winID)
+    m_moteur->setDest(m_numFlux, "m_numFlux", m_idWinView[0]);
+
+    //m_moteur->play(m_numFlux, 1);
+    //fenetreLecture->show();
+    this->hide();
+
 
 }
 

@@ -19,14 +19,16 @@ SOURCES += main.cpp\
     engine.cpp \
     stream.cpp \
     serverwin.cpp \
-    thumbnail.cpp
+    thumbnail.cpp \
+    player.cpp
 
 HEADERS  += mainwindow.h \
     addstream.h \
     engine.h \
     stream.h \
     serverwin.h \
-    thumbnail.h
+    thumbnail.h \
+    player.h
 
 mac {
     QT += opengl

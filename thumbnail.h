@@ -16,6 +16,8 @@ public:
     Thumbnail();
     ~Thumbnail();
 
+    int getWinID();
+
 private slots:
     void slotPlay();
     void slotPause();

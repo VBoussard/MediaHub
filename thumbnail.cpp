@@ -33,3 +33,8 @@ void Thumbnail::slotPause()
 {
 
 }
+
+int Thumbnail::getWinID()
+{
+    return ((int) m_videoWidget->winId());
+}

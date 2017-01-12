@@ -28,6 +28,8 @@ private:
     QPushButton *m_pbAdd;
     QTabWidget *m_tabServer;
 
+    int WinViewID[8];
+
 public slots:
     void slotpbAdd();
 };

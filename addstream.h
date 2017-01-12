@@ -16,7 +16,7 @@ class AddStream : public QWidget
     Q_OBJECT
 
 public:
-    explicit AddStream(Engine *moteur = NULL);
+    explicit AddStream(Engine *moteur, int _idWinView[]);
     ~AddStream();
 
 protected:
@@ -38,6 +38,7 @@ protected:
 private:
     Engine *m_moteur;
     QPushButton *m_pbValid, *m_pbCancel;
+    int m_idWinView[8];
 
     //Config IN
     QString choixCarte, profil, nomSource;
