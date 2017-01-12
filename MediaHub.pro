@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT += xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,13 +18,15 @@ SOURCES += main.cpp\
     addstream.cpp \
     engine.cpp \
     stream.cpp \
-    serverwin.cpp
+    serverwin.cpp \
+    thumbnail.cpp
 
 HEADERS  += mainwindow.h \
     addstream.h \
     engine.h \
     stream.h \
-    serverwin.h
+    serverwin.h \
+    thumbnail.h
 
 mac {
     QT += opengl
@@ -39,3 +42,6 @@ win32 {
 }
 
 FORMS    +=
+
+RESOURCES += \
+    Src.qrc

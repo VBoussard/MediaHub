@@ -3,12 +3,18 @@
 
 #include <QButtonGroup>
 #include <QFileDialog>
+#include <QMessageBox>
+
+#include <QtXml>
+#include <QFile>
+#include <QXmlStreamWriter>
 
 
 AddStream::AddStream(Engine *moteur) : QWidget(), m_moteur(moteur)
 {
     QWidget *fenAjout = new QWidget(this);
     QGridLayout *glAjout = new QGridLayout;
+    glAjout->setAlignment(Qt::AlignTop);
     fenAjout->setFixedSize(700, 450);
     fenAjout->setWindowTitle("Assistant I/O");
 
@@ -208,10 +214,9 @@ void AddStream::Annuler()
 
 void AddStream::Valider()
 {
-    QWidget winAff;
-    winAff.show();
-    std::cout << "titi"<< std::endl;
-
+    QDomDocument streamsFile;
+    QDomElement root = streamsFile.createElement("streams");
+    streamsFile.appendChild(root);
 
 }
 

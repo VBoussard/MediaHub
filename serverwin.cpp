@@ -1,6 +1,8 @@
 #include "addstream.h"
 #include "serverwin.h"
 
+#include <thumbnail.h>
+
 ServerWin::ServerWin(Engine *_engine) : QWidget()
 {
 
@@ -28,6 +30,27 @@ ServerWin::ServerWin(Engine *_engine) : QWidget()
     glServer->addWidget(m_tabServer,1,0);
 
     connect(m_pbAdd,SIGNAL(clicked()), this, SLOT(slotpbAdd()));
+
+    Thumbnail *thumb1 = new Thumbnail();
+    Thumbnail *thumb2 = new Thumbnail();
+    Thumbnail *thumb3 = new Thumbnail();
+    Thumbnail *thumb4 = new Thumbnail();
+    Thumbnail *thumb5 = new Thumbnail();
+    Thumbnail *thumb6 = new Thumbnail();
+    Thumbnail *thumb7 = new Thumbnail();
+    Thumbnail *thumb8 = new Thumbnail();
+    QGridLayout *gl_thumbnails = new QGridLayout(tab1);
+    //gl_thumbnails->setAlignment(Qt::AlignTop);
+    gl_thumbnails->addWidget(thumb1,0,0);
+    gl_thumbnails->addWidget(thumb2,0,1);
+    gl_thumbnails->addWidget(thumb3,0,2);
+    gl_thumbnails->addWidget(thumb4,0,3);
+    gl_thumbnails->addWidget(thumb5,1,0);
+    gl_thumbnails->addWidget(thumb6,1,1);
+    gl_thumbnails->addWidget(thumb7,1,2);
+    gl_thumbnails->addWidget(thumb8,1,3);
+
+
 }
 
 ServerWin::~ServerWin()
