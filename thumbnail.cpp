@@ -3,8 +3,9 @@
 #include <QFrame>
 #include <QGridLayout>
 
-Thumbnail::Thumbnail() : QWidget()
+Thumbnail::Thumbnail(Engine *_engine) : QWidget()
 {
+    m_engine = _engine;
     m_pbPlay = new QPushButton("Play");
     m_pbPause = new QPushButton("Pause");
     m_videoWidget = new QWidget();

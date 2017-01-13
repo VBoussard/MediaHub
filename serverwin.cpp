@@ -35,7 +35,7 @@ ServerWin::ServerWin(Engine *_engine) : QWidget(),
 
     for (int i=0; i<8; i++)
     {
-        WinView[i] = new Thumbnail();
+        WinView[i] = new Thumbnail(m_engine);
         WinViewID[i] = WinView[i]->getWinID();
 
         std::cout<<WinViewID[i]<<std::endl;

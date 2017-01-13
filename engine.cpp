@@ -12,8 +12,7 @@ Engine::Engine()
     //m_numFlux = 0;
     m_nbStreams = 0;
     //tableauFlux.push_back(NULL);
-    std::cout << &tableauFlux << "titi" << std::endl;
-    //Stream::initMLT();
+    Stream::initMLT();
 
     for(int i=0; i<8; i++)
     {
