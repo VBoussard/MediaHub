@@ -77,13 +77,15 @@ void ServerWin::slotpbAdd()
     if(FenetreAjout->result() == QDialog::Accepted)
     {
         nb_streams++;
-        int largeur_tab = 4;
         WinView[nb_streams] = new Thumbnail;
         WinViewID[nb_streams] = WinView[nb_streams]->getWinID();
 
         gl_thumbnails->addWidget(WinView[nb_streams],(nb_streams/5),((nb_streams-1)%4));
-        std::cout << nb_streams << "  -  " << nb_streams/5 << "   -   " << (nb_streams-1)%4 << std::endl;
 
+        m_numFlux = m_engine->createStream();
+        m_engine->setSrc(m_numFlux, FenetreAjout->getSource());
+        m_engine->setDest(m_numFlux, "m_numFlux", WinViewID[nb_streams]);
+        m_engine->play(m_numFlux, 1);
     }
 
 }

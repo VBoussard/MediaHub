@@ -20,6 +20,8 @@ public:
     explicit AddStream(Engine *moteur, int _idWinView[]);
     ~AddStream();
 
+     const char *getSource();
+
 protected:
     //Config IN
     QRadioButton *radioEntreePhy, *radioEntreeStr;
@@ -36,13 +38,17 @@ protected:
     QLineEdit *lineNomOUT, *lineAdressOUT;
     QPushButton *boutonAdressOUT, *boutonParamVidOUT, *boutonParamAudOUT;
 
+    const char* nomSource;
+
+
+
 private:
     Engine *m_moteur;
     QPushButton *m_pbValid, *m_pbCancel;
     int m_idWinView[8];
 
     //Config IN
-    QString choixCarte, profil, nomSource;
+    QString choixCarte, profil;
 
     //const char* C_choixCarte, C_profil, C_nomSource;
 
@@ -51,12 +57,12 @@ private:
     int m_numFlux;
 
 
-
 private slots:
     void Annuler();
     void Valider();
     void slotAdressIN();
     void slotAdressOUT();
+
 };
 
 #endif // ADDSTREAM_H

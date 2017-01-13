@@ -4,6 +4,7 @@
 #include <QButtonGroup>
 #include <QFileDialog>
 
+#include <string.h>
 
 AddStream::AddStream(Engine *moteur, int _idWinView[]) : QDialog(), m_moteur(moteur)
 {
@@ -225,6 +226,9 @@ void AddStream::Valider()
      std::cout<< "id fenetre lect : "<< id_fenetreLecture <<std::endl;
     */
 
+
+    //=========================
+    /*
     m_numFlux = m_moteur->createStream();
     std::cout<< "num flux : "<< m_numFlux <<std::endl;
 
@@ -239,6 +243,8 @@ void AddStream::Valider()
 
     //m_moteur->play(m_numFlux, 1);
     //fenetreLecture->show();
+    */
+    //==============================
     this->hide();
 
 
@@ -248,9 +254,21 @@ void AddStream::slotAdressIN()
 {
     QString *adressIN = new QString(QFileDialog::getOpenFileName());
     lineAdressIN->setText(*adressIN);
+
+    char *str=(char *)malloc(adressIN->size());
+    QByteArray ba=adressIN->toLatin1();
+    std::cout<<ba.data()<<std::endl;
+    strcpy(str,ba.data());
+
+    nomSource = str;
 }
 void AddStream::slotAdressOUT()
 {
     QString *adressOUT = new QString(QFileDialog::getSaveFileName());
     lineAdressOUT->setText(*adressOUT);
+}
+
+const char* AddStream::getSource()
+{
+    return this->nomSource;
 }
