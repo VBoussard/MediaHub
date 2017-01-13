@@ -22,7 +22,7 @@ static const uint qt_meta_data_AddStream[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -31,16 +31,13 @@ static const uint qt_meta_data_AddStream[] = {
 
  // slots: signature, parameters, type, tag, flags
       11,   10,   10,   10, 0x08,
-      21,   10,   10,   10, 0x08,
-      31,   10,   10,   10, 0x08,
-      46,   10,   10,   10, 0x08,
+      26,   10,   10,   10, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_AddStream[] = {
-    "AddStream\0\0Annuler()\0Valider()\0"
-    "slotAdressIN()\0slotAdressOUT()\0"
+    "AddStream\0\0slotAdressIN()\0slotAdressOUT()\0"
 };
 
 void AddStream::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -49,10 +46,8 @@ void AddStream::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         Q_ASSERT(staticMetaObject.cast(_o));
         AddStream *_t = static_cast<AddStream *>(_o);
         switch (_id) {
-        case 0: _t->Annuler(); break;
-        case 1: _t->Valider(); break;
-        case 2: _t->slotAdressIN(); break;
-        case 3: _t->slotAdressOUT(); break;
+        case 0: _t->slotAdressIN(); break;
+        case 1: _t->slotAdressOUT(); break;
         default: ;
         }
     }
@@ -91,9 +86,9 @@ int AddStream::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 2;
     }
     return _id;
 }

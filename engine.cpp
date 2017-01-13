@@ -12,6 +12,16 @@ Engine::Engine()
     //tableauFlux.push_back(NULL);
     std::cout << &tableauFlux << "titi" << std::endl;
     Stream::initMLT();
+
+
+    struct structStream {
+      int S_numStream;
+      Stream S_stream;
+      int S_pathInType;
+      int S_pathOutType;
+    } stream1, stream2, stream3, stream4, stream5, stream6, stream7, stream8;
+
+    structStream streamTab[8] = {stream1, stream2, stream3, stream4, stream5, stream6, stream7, stream8};
 }
 Engine* Engine::getInstance()
 {

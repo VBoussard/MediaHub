@@ -12,6 +12,7 @@ ServerWin::ServerWin(Engine *_engine) : QWidget(),
     QWidget *fenServer = new QWidget(this);
     QGridLayout *glServer = new QGridLayout;
     fenServer->setFixedSize(800, 600);
+    this->move(0,0);
     fenServer->setWindowTitle("Administration");
     glServer->setSpacing(4);
     fenServer->setLayout(glServer);

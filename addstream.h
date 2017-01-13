@@ -58,8 +58,6 @@ private:
 
 
 private slots:
-    void Annuler();
-    void Valider();
     void slotAdressIN();
     void slotAdressOUT();
 

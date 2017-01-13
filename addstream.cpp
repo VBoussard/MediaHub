@@ -16,6 +16,7 @@ AddStream::AddStream(Engine *moteur, int _idWinView[]) : QDialog(), m_moteur(mot
     QWidget *fenAjout = new QWidget(this);
     QGridLayout *glAjout = new QGridLayout;
     fenAjout->setFixedSize(700, 450);
+    this->move(0,0);
     fenAjout->setWindowTitle("Assistant I/O");
 
     glAjout->setSpacing(4);
@@ -207,46 +208,6 @@ AddStream::AddStream(Engine *moteur, int _idWinView[]) : QDialog(), m_moteur(mot
 
 AddStream::~AddStream()
 {
-
-}
-
-
-void AddStream::Annuler()
-{
-    this->Rejected;
-    this->close();
-}
-
-void AddStream::Valider()
-{
-    this->Accepted;
-    /*
-     Player *fenetreLecture = new Player();
-     int id_fenetreLecture = (int) fenetreLecture->winId();
-     std::cout<< "id fenetre lect : "<< id_fenetreLecture <<std::endl;
-    */
-
-
-    //=========================
-    /*
-    m_numFlux = m_moteur->createStream();
-    std::cout<< "num flux : "<< m_numFlux <<std::endl;
-
-    QString adresse = lineAdressIN->text();
-    const char* S_nomSource = adresse.toUtf8().constData();
-
-    //std::cout<< "adresse source prise dans la fenetre addstream et passée ds setsrc "<< S_nomSource <<std::endl;
-    m_moteur->setSrc(m_numFlux, S_nomSource);
-
-    //Engine::setDest(int _IDStream, const char* _pathDest, int _winID)
-    m_moteur->setDest(m_numFlux, "m_numFlux", m_idWinView[0]);
-
-    //m_moteur->play(m_numFlux, 1);
-    //fenetreLecture->show();
-    */
-    //==============================
-    this->hide();
-
 
 }
 
