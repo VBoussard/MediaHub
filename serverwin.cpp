@@ -85,6 +85,8 @@ void ServerWin::slotpbAdd()
 
         m_engine->play(numFlux, 1);
 
+        WinView[numFlux]->linkToStream(m_engine->streamTab[numFlux]);
+
         m_engine->NbStreamsPlus();
     }
 

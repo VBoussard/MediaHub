@@ -15,11 +15,15 @@ private:
     QWidget *m_videoWidget;
     Engine *m_engine;
 
+    structStream *m_struct;
+
 public:
     Thumbnail(Engine *_engine);
     ~Thumbnail();
 
     int getWinID();
+
+    void linkToStream(structStream *_struct);
 
 private slots:
     void slotPlay();
