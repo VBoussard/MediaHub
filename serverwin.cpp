@@ -36,6 +36,7 @@ ServerWin::ServerWin(Engine *_engine) : QWidget(),
     for (int i=0; i<8; i++)
     {
         WinView[i] = new Thumbnail(m_engine);
+        WinView[i]->hide();
         WinViewID[i] = WinView[i]->getWinID();
 
         std::cout<<WinViewID[i]<<std::endl;
@@ -79,6 +80,9 @@ void ServerWin::slotpbAdd()
     {
         int numFlux = m_engine->getNbStreams();
         std::cout<<"numFlux = "<< numFlux << std::endl;
+
+        WinView[numFlux]->show();
+
         m_engine->setSrc(numFlux, FenetreAjout->getSource());
 
         m_engine->setDest(numFlux, "m_numFlux", WinViewID[numFlux]);
