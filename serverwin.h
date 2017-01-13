@@ -29,7 +29,6 @@ private:
     QPushButton *m_pbAdd;
     QTabWidget *m_tabServer;
 
-    int m_numFlux;
 
     int WinViewID[8];    //REMPLACER PAR VECTOR ??
     //====================//

@@ -32,27 +32,26 @@ ServerWin::ServerWin(Engine *_engine) : QWidget(),
     m_tabServer->addTab(tab2,"Carte 2");
     glServer->addWidget(m_tabServer,1,0);
 
-    gl_thumbnails = new QGridLayout(tab1);
-    //gl_thumbnails->setAlignment(Qt::AlignTop);
 
-/*
     for (int i=0; i<8; i++)
     {
         WinView[i] = new Thumbnail();
         WinViewID[i] = WinView[i]->getWinID();
 
-    }
-        //gl_thumbnails->setAlignment(Qt::AlignTop);
-        gl_thumbnails->addWidget(WinView[0],0,0);
-        gl_thumbnails->addWidget(WinView[1],0,1);
-        gl_thumbnails->addWidget(WinView[2],0,2);
-        gl_thumbnails->addWidget(WinView[3],0,3);
-        gl_thumbnails->addWidget(WinView[4],1,0);
-        gl_thumbnails->addWidget(WinView[5],1,1);
-        gl_thumbnails->addWidget(WinView[6],1,2);
-        gl_thumbnails->addWidget(WinView[7],1,3);
+        std::cout<<WinViewID[i]<<std::endl;
 
-    */
+    }
+
+    gl_thumbnails = new QGridLayout(tab1);
+    gl_thumbnails->addWidget(WinView[0],0,0);
+    gl_thumbnails->addWidget(WinView[1],0,1);
+    gl_thumbnails->addWidget(WinView[2],0,2);
+    gl_thumbnails->addWidget(WinView[3],0,3);
+    gl_thumbnails->addWidget(WinView[4],1,0);
+    gl_thumbnails->addWidget(WinView[5],1,1);
+    gl_thumbnails->addWidget(WinView[6],1,2);
+    gl_thumbnails->addWidget(WinView[7],1,3);
+
     connect(m_pbAdd,SIGNAL(clicked()), this, SLOT(slotpbAdd()));
 }
 
@@ -73,20 +72,20 @@ void ServerWin::setPosition(int _position)
 
 void ServerWin::slotpbAdd()
 {
-    AddStream *FenetreAjout = new AddStream(m_engine,WinViewID);
+    AddStream *FenetreAjout = new AddStream(m_engine);
     FenetreAjout->exec();
+
     if(FenetreAjout->result() == QDialog::Accepted)
     {
-        nb_streams++;
-        WinView[nb_streams] = new Thumbnail;
-        WinViewID[nb_streams] = WinView[nb_streams]->getWinID();
+        int numFlux = m_engine->getNbStreams();
+        std::cout<<"numFlux = "<< numFlux << std::endl;
+        m_engine->setSrc(numFlux, FenetreAjout->getSource());
 
-        gl_thumbnails->addWidget(WinView[nb_streams],(nb_streams/5),((nb_streams-1)%4));
+        m_engine->setDest(numFlux, "m_numFlux", WinViewID[numFlux]);
 
-        m_numFlux = m_engine->createStream();
-        m_engine->setSrc(m_numFlux, FenetreAjout->getSource());
-        m_engine->setDest(m_numFlux, "m_numFlux", WinViewID[nb_streams]);
-        m_engine->play(m_numFlux, 1);
+        m_engine->play(numFlux, 1);
+
+        m_engine->NbStreamsPlus();
     }
 
 }

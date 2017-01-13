@@ -38,12 +38,14 @@ void Stream::setID(int _IDStream)
 
 void Stream::setSrc(const char* _src)
 {
+
     m_profile = new Mlt::Profile();
     m_producer = new Mlt::Producer(*m_profile, _src);
 }
 
 void Stream::setDest(const char* _dest, int _winID)
 {
+    std::cout<<"IDWin player in stream: "<< _winID <<std::endl;
     m_consumer = new Mlt::Consumer(*m_profile, "sdl_preview");
     m_consumer->set("window_id", _winID);
     m_consumer->connect(*m_producer);

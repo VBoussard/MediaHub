@@ -6,13 +6,8 @@
 
 #include <string.h>
 
-AddStream::AddStream(Engine *moteur, int _idWinView[]) : QDialog(), m_moteur(moteur)
+AddStream::AddStream(Engine *moteur) : QDialog(), m_moteur(moteur)
 {
-    for(int i=0;i<8;i++)
-       {
-        m_idWinView[i] = _idWinView[i];
-        }
-
     QWidget *fenAjout = new QWidget(this);
     QGridLayout *glAjout = new QGridLayout;
     fenAjout->setFixedSize(700, 450);

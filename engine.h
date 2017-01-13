@@ -5,13 +5,22 @@
 #include <vector>
 
 
+typedef struct {
+  int *S_numStream;
+  Stream *S_stream;
+  int *S_pathInType;
+  int *S_pathOutType;
+} structStream;
+
 class Engine
 {
 private:
     //Attributs :
-    int m_nbStream;
+    //int m_nbStream;
     std::vector<Stream*> m_streamArray;
     static bool instanceFlag;
+
+    int m_nbStreams;
 
 
 public:
@@ -25,7 +34,12 @@ public:
     void play(int _IDStream, int _speed = 1);
     void pause(int _IDStream);
 
-    struct structStream;
+    structStream* streamTab[8];
+
+    structStream* getStream(int _numStream);
+
+    int getNbStreams();
+    void NbStreamsPlus();
 
     // anciens noms à remplacer
     std::vector<Stream*> tableauFlux;

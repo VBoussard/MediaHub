@@ -17,7 +17,7 @@ class AddStream : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddStream(Engine *moteur, int _idWinView[]);
+    explicit AddStream(Engine *moteur);
     ~AddStream();
 
      const char *getSource();
